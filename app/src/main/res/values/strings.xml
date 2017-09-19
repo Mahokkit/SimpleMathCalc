@@ -18,4 +18,5 @@
     <string name="txtDivided">÷</string>
     <string name="txtPosNeg">+/-</string>
     <string name="txtDecimal">.</string>
+    <string name="txtTest">Testing Text</string>
 </resources>
