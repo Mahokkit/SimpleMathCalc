@@ -9,14 +9,15 @@
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        android:paddingBottom="@dimen/display_margin"
+        android:paddingLeft="@dimen/display_margin"
+        android:paddingRight="@dimen/display_margin"
+        android:paddingTop="@dimen/display_margin">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="75sp">
 
             <TextView
                 android:id="@+id/Display"
@@ -24,7 +25,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_span="4"
-                android:paddingTop="100sp"
                 android:text="Test TEXT"
                 android:textAlignment="textEnd"
                 android:textSize="36sp" />
@@ -38,8 +38,7 @@
                 android:id="@+id/btn7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:
-                android:minHeight="@android:dimen/app_icon_size"
+                android:height="@dimen/button_height"
                 android:text="@string/txtNum7"
                 android:textSize="@dimen/txtSize" />
 
@@ -48,21 +47,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtNum8"
-                android:textSize="@dimen/txtSize" />
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
 
             <Button
                 android:id="@+id/btn9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtNum9"
-                android:textSize="@dimen/txtSize" />
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
 
             <Button
                 android:id="@+id/btnDivided"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtDivided"
-                android:textSize="@dimen/txtSize" />
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
         </TableRow>
 
         <TableRow
@@ -74,28 +76,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtNum4"
-                android:textSize="@dimen/txtSize" />
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
 
             <Button
                 android:id="@+id/btn5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtNum5"
-                android:textSize="@dimen/txtSize" />
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
 
             <Button
                 android:id="@+id/btn6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtNum6"
-                android:textSize="@dimen/txtSize" />
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
 
             <Button
                 android:id="@+id/btnMultiply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtMultiply"
-                android:textSize="@dimen/txtSize" />
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
         </TableRow>
 
         <TableRow
@@ -107,28 +113,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtNum1"
-                android:textSize="@dimen/txtSize" />
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height"  />
 
             <Button
                 android:id="@+id/btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtNum2"
-                android:textSize="@dimen/txtSize" />
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
 
             <Button
                 android:id="@+id/btn3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtNum3"
-                android:textSize="@dimen/txtSize" />
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
 
             <Button
                 android:id="@+id/btnMinus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtMinus"
-                android:textSize="@dimen/txtSize" />
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
         </TableRow>
 
         <TableRow
@@ -139,25 +149,33 @@
                 android:id="@+id/btnDecimal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txtDecimal" />
+                android:height="@dimen/button_height"
+                android:text="@string/txtDecimal"
+                android:textSize="@dimen/txtSize" />
 
             <Button
                 android:id="@+id/btn0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txtNum0" />
+                android:text="@string/txtNum0"
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
 
             <Button
                 android:id="@+id/btnPosNeg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txtPosNeg" />
+                android:text="@string/txtPosNeg"
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
 
             <Button
                 android:id="@+id/btnPlus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txtPlus" />
+                android:text="@string/txtPlus"
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
         </TableRow>
 
         <TableRow
@@ -169,14 +187,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
-                android:text="@string/txtClear" />
+                android:text="@string/txtClear"
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
 
             <Button
                 android:id="@+id/btnEqual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
-                android:text="@string/txtEqual" />
+                android:text="@string/txtEqual"
+                android:textSize="@dimen/txtSize"
+                android:height="@dimen/button_height" />
         </TableRow>
     </TableLayout>
 </android.support.constraint.ConstraintLayout>
