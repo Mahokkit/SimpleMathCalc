@@ -36,12 +36,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         num9.setOnClickListener(this);
         Button num0 = (Button) findViewById(R.id.btn0);
         num0.setOnClickListener(this);
+        Button btnClear = (Button) findViewById(R.id.btnClear);
+        btnClear.setOnClickListener(this);
+        Button btnBkSpc = (Button) findViewById(R.id.btnBkSpc);
+        btnBkSpc.setOnClickListener(this);
     }
 
 
     public void onClick (View view)
     {
-        TextView display = (TextView) findViewById(R.id.Display);
+        TextView display = (TextView) findViewById(R.id.display);
         switch (view.getId())
         {
             case R.id.btn1:
@@ -74,6 +78,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn0:
                 display.setText(display.getText() + "0");
                 break;
+            case R.id.btnClear:
+                display.setText(null);
+                break;
+            case R.id.btnBkSpc:
+                String txt = display.getText().toString();
+                txt  = txt.substring(0, display.length() - 1);
+                display.setText(txt);
         }
 //        display.setText(display.getText() + "1");
     }
