@@ -9,7 +9,6 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -82,12 +81,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 display.setText(null);
                 break;
             case R.id.btnBkSpc:
-                String txt = display.getText().toString();
-                txt  = txt.substring(0, display.length() - 1);
-                display.setText(txt);
+                if (display.getText().toString().isEmpty())
+                {
+                    display.setText(null);
+                    break;
+                }
+                else
+                {
+                    String txt = display.getText().toString();
+                    txt = txt.substring(0, display.length() - 1);
+                    display.setText(txt);
+                    break;
+
+                }
         }
-//        display.setText(display.getText() + "1");
     }
-
-
+//        display.setText(display.getText() + "1");
 }
