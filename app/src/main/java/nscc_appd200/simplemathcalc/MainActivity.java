@@ -4,28 +4,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
-import java.text.DecimalFormat;
 
 import java.lang.String;
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView display;
 
     private int count = 0;
+    private int negCount = 0;
     String  s1;
     double v1 = 0, result;
-    DecimalFormat decForm;
     boolean newValue = true;
     boolean booPlus = false, booMinus = false, booMultiply = false, booDivided = false; //for equal
     boolean opPlus = false, opMinus = false, opMultiply = false, opDivided = false; //for operation
-    boolean plusClick = false, minusClick = false, multiplyClick = false, dividedClick = false;
-    private char op;
+    DecimalFormat decimalFormat = new DecimalFormat("#.#####");
+    Button btnEqual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        decForm = new DecimalFormat("#.##########");
         Button num1 = (Button) findViewById(R.id.btn1);
         num1.setOnClickListener(this);
         Button num2 = (Button) findViewById(R.id.btn2);
@@ -62,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDecimal.setOnClickListener(this);
         Button btnPosNeg = (Button) findViewById(R.id.btnPosNeg);
         btnPosNeg.setOnClickListener(this);
-        Button btnEqual = (Button) findViewById(R.id.btnEqual);
-        btnEqual.setOnClickListener(this);
+        btnEqual = (Button) findViewById(R.id.btnEqual);
+        this.btnEqual.setOnClickListener(this);
 
         display = (TextView) findViewById(R.id.display);
         display.setText(null);
@@ -205,6 +204,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnClear:
                 display.setText(null);
+                clearALL();
                 break;
             case R.id.btnDivided:
                 operationClicked("divided");
@@ -225,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnDecimal:
                 if (count == 0 && display.length() != 0) {
+                    display.setText(display.getText() + ".");
                     s1 = s1 + ".";
                     count++;
                 }
@@ -232,6 +233,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnBkSpc:
                 if (display.getText().toString().isEmpty()) {
                     display.setText(null);
+                    clearALL();
                     break;
                 } else {
                     String txt = display.getText().toString();
@@ -240,42 +242,80 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
                 }
             case R.id.btnPosNeg:
-                if(display.length()!=0)
+                s1 = "-" + s1;
+                if (negCount == 0)
                 {
-                    String s=display.getText().toString();
-                    char arr[]=s.toCharArray();
-                    if(arr[0]=='-')
-                        display.setText(s.substring(1,s.length()));
-                    else
-                        display.setText("-"+s);
+                    display.setText(s1);
                 }
+                else
+                {
+                    if (booPlus == true)
+                    {
+                        display.setText(Double.toString(result) + "+" + s1);
+                    }
+                    else if (booMinus == true)
+                    {
+                        display.setText(Double.toString(result) + "-" + s1);
+                    }
+                    else if (booMultiply==true)
+                    {
+                        display.setText(Double.toString(result) + "x" + s1);
+                    }
+                    else if (booDivided == true)
+                    {
+                        display.setText(Double.toString(result) + display.getResources().getString(R.string.txtDivided) + s1);
+                    }
+                }
+                negCount++;
                 break;
             case R.id.btnEqual:
                 if (booPlus == true)
                 {
-//                    opPlus = true;
                     operationClicked("plus");
                 }
                 else if (booMinus == true)
                 {
-//                    opMinus = true;
                     operationClicked("minus");
                 }
                 else if (booMultiply == true)
                 {
-//                    opMultiply = true;
                     operationClicked("multiply");
                 }
-                else if (this.booDivided == true)
+                else if (booDivided == true)
                 {
-//                    opDivided = true;
                     operationClicked("divided");
                 }
-                s1 = null;
-                result = 0;
-                v1 = 0;
+
+                opPlus = false;
+                opMinus = false;
+                opDivided = false;
+                opMultiply = false;
+                booDivided = false;
+                booMultiply = false;
+                booMinus = false;
+                booPlus = false;
+                s1 = Double.toString(result);
+                count = 0;
+                negCount = 0;
                 break;
         }
+    }
+
+    private void clearALL()
+    {
+        result = 0;
+        v1 = 0;
+        opPlus = false;
+        opMinus = false;
+        opDivided = false;
+        opMultiply = false;
+        booDivided = false;
+        booMultiply = false;
+        booMinus = false;
+        booPlus = false;
+        count = 0;
+        negCount = 0;
+        s1 = "";
     }
 
     private void operationClicked(String op)
@@ -291,9 +331,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
                 v1 = Double.parseDouble(s1);
                 result = result + v1;
-                display.setText(Double.toString(result));
+                display.setText(decimalFormat.format(result));
             }
             newValue = true;
+            booPlus = true;
         }
         else if (op == "minus")
         {
@@ -301,14 +342,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
                 result = Double.parseDouble(s1);
                 opMinus = true;
+
             }
             else if (opMinus == true)
             {
                 v1 = Double.parseDouble(s1);
                 result = result - v1;
-                display.setText(Double.toString(result));
+                display.setText(decimalFormat.format(result));
             }
             newValue = true;
+            booMinus = true;
         }
         else if (op == "multiply")
         {
@@ -321,9 +364,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
                 v1 = Double.parseDouble(s1);
                 result = result * v1;
-                display.setText(Double.toString(result));
+                display.setText(decimalFormat.format(result));
             }
             newValue = true;
+            booMultiply = true;
         }
         else if (op == "divided")
         {
@@ -335,11 +379,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else if (opDivided == true)
             {
                 v1 = Double.parseDouble(s1);
-                result = result / v1;
-                display.setText(Double.toString(result));
+                if (v1 == 0) //fix infinity problem.
+                {
+                    result = 0;
+                    display.setText(decimalFormat.format(0));
+                }
+                else
+                {
+                    result = result / v1;
+                    display.setText(decimalFormat.format(result));
+                }
             }
             newValue = true;
+            booDivided = true;
         }
+        count = 0;
     }
 
 }
