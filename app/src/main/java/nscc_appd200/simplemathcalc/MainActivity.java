@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     boolean newValue = true;
     boolean booPlus = false, booMinus = false, booMultiply = false, booDivided = false; //for equal
     boolean opPlus = false, opMinus = false, opMultiply = false, opDivided = false; //for operation
+    boolean plusClick = false, minusClick = false, multiplyClick = false, dividedClick = false;
     private char op;
 
     @Override
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDecimal.setOnClickListener(this);
         Button btnPosNeg = (Button) findViewById(R.id.btnPosNeg);
         btnPosNeg.setOnClickListener(this);
+        Button btnEqual = (Button) findViewById(R.id.btnEqual);
+        btnEqual.setOnClickListener(this);
 
         display = (TextView) findViewById(R.id.display);
         display.setText(null);
@@ -215,8 +218,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnPlus:
                 operationClicked("plus");
                 display.setText(display.getText() + display.getResources().getString(R.string.txtPlus));
-                opPlus = true;
-                newValue = true;
                 break;
             case R.id.btnMinus:
                 operationClicked("minus");
@@ -252,18 +253,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnEqual:
                 if (booPlus == true)
                 {
+//                    opPlus = true;
                     operationClicked("plus");
                 }
                 else if (booMinus == true)
                 {
+//                    opMinus = true;
                     operationClicked("minus");
                 }
                 else if (booMultiply == true)
                 {
+//                    opMultiply = true;
                     operationClicked("multiply");
                 }
-                else if (booDivided == true)
+                else if (this.booDivided == true)
                 {
+//                    opDivided = true;
                     operationClicked("divided");
                 }
                 s1 = null;
@@ -275,47 +280,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void operationClicked(String op)
     {
-//        result = Double.parseDouble(s1);
-//        v1 = Double.parseDouble(s1);
-
         if (op == "plus")
         {
-            if (opPlus == true)
+            if (opPlus == false)
             {
                 result = Double.parseDouble(s1);
+                opPlus = true;
             }
-            else {
+            else if (opPlus == true)
+            {
                 v1 = Double.parseDouble(s1);
                 result = result + v1;
                 display.setText(Double.toString(result));
-                //enable (booleen) plus so when hit equal, check which isn't disable and run that calculation
             }
             newValue = true;
-            booPlus = true;
         }
         else if (op == "minus")
         {
-            result = result - v1;
-            display.setText(Double.toString(result));
+            if (opMinus == false)
+            {
+                result = Double.parseDouble(s1);
+                opMinus = true;
+            }
+            else if (opMinus == true)
+            {
+                v1 = Double.parseDouble(s1);
+                result = result - v1;
+                display.setText(Double.toString(result));
+            }
             newValue = true;
-            booMinus = true;
         }
         else if (op == "multiply")
         {
-            result = result * v1;
-            display.setText(Double.toString(result));
+            if (opMultiply == false)
+            {
+                result = Double.parseDouble(s1);
+                opMultiply = true;
+            }
+            else if (opMultiply == true)
+            {
+                v1 = Double.parseDouble(s1);
+                result = result * v1;
+                display.setText(Double.toString(result));
+            }
             newValue = true;
-            booMultiply = true;
         }
         else if (op == "divided")
         {
-            result = result / v1;
-            display.setText(Double.toString(result));
+            if (opDivided == false)
+            {
+                result = Double.parseDouble(s1);
+                opDivided = true;
+            }
+            else if (opDivided == true)
+            {
+                v1 = Double.parseDouble(s1);
+                result = result / v1;
+                display.setText(Double.toString(result));
+            }
             newValue = true;
-            booDivided = true;
         }
-        v1 = 0;
-        s1 = null;
     }
 
 }
