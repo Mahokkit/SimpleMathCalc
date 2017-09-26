@@ -19,5 +19,5 @@
     <string name="txtPosNeg">+/-</string>
     <string name="txtDecimal">.</string>
     <string name="txtBkSpc"><![CDATA[<]]></string>
-    <string name="txtTest">Testing Text</string>
+    <string name="txtTest"></string>
 </resources>
