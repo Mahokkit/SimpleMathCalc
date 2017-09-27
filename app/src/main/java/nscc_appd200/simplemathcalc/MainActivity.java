@@ -166,13 +166,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn8:
                 if (newValue != true)
                 {
-                    display.setText(display.getText() + display.getResources().getString(R.string.txtNum7));
-                    s1 = s1 + "7";
+                    display.setText(display.getText() + display.getResources().getString(R.string.txtNum8));
+                    s1 = s1 + "8";
                 }
                 else
                 {
-                    display.setText(display.getText() + display.getResources().getString(R.string.txtNum7));
-                    s1 = "7";
+                    display.setText(display.getText() + display.getResources().getString(R.string.txtNum8));
+                    s1 = "8";
                     newValue = false;
                 }
                 break;
@@ -383,6 +383,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 {
                     result = 0;
                     display.setText(decimalFormat.format(0));
+                    Toast.makeText(MainActivity.this, "Can't Divide By Zero", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
