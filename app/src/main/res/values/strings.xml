@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">(not so) Simple Math Calculator</string>
+    <string name="app_name">Simple Math Calculator</string>
     <string name="txtNum1">1</string>
     <string name="txtNum2">2</string>
     <string name="txtNum3">3</string>
