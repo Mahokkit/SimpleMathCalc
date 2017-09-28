@@ -207,21 +207,105 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 clearALL();
                 break;
             case R.id.btnDivided:
-                operationClicked("divided");
-                display.setText(display.getText() + display.getResources().getString(R.string.txtDivided));
+                while (opDivided == false) {
+                    if (booPlus == true) {
+                        operationClicked("plus");
+                    } else if (booMinus == true) {
+                        operationClicked("minus");
+                    } else if (booMultiply == true) {
+                        operationClicked("multiply");
+                    } else if (booDivided == false) {
+                        operationClicked("divided");
+                    }
+
+                    opPlus = false;
+                    opMinus = false;
+                    opMultiply = false;
+                    booMultiply = false;
+                    booMinus = false;
+                    booPlus = false;
+                    s1 = Double.toString(result);
+                    count = 0;
+                    negCount = 0;
+                }
+                display.setText(Double.toString(result) + display.getResources().getString(R.string.txtDivided));
                 break;
             case R.id.btnMultiply:
-                operationClicked("multiply");
-                display.setText(display.getText() + display.getResources().getString(R.string.txtMultiply));
-                opMultiply = true;
+                while (opMultiply == false) {
+                    if (booPlus == true) {
+                        operationClicked("plus");
+                    } else if (booMinus == true) {
+                        operationClicked("minus");
+                    } else if (booMultiply == false) {
+                        operationClicked("multiply");
+                    } else if (booDivided == true) {
+                        operationClicked("divided");
+                    }
+
+                    opPlus = false;
+                    opMinus = false;
+                    opDivided = false;
+
+                    booMinus = false;
+                    booPlus = false;
+                    booDivided = false;
+                    s1 = Double.toString(result);
+                    count = 0;
+                    negCount = 0;
+                }
+                display.setText(Double.toString(result) + display.getResources().getString(R.string.txtMultiply));
                 break;
             case R.id.btnPlus:
-                operationClicked("plus");
-                display.setText(display.getText() + display.getResources().getString(R.string.txtPlus));
+                while (opPlus == false) {
+                    if (booPlus == false) {
+                        operationClicked("plus");
+                    } else if (booMinus == true) {
+                        operationClicked("minus");
+                    } else if (booMultiply == true) {
+                        operationClicked("multiply");
+                    } else if (booDivided == true) {
+                        operationClicked("divided");
+                    }
+
+
+                    opMinus = false;
+                    opMultiply = false;
+                    opDivided = false;
+                    booMultiply = false;
+                    booMinus = false;
+
+                    booDivided = false;
+                    s1 = Double.toString(result);
+                    count = 0;
+                    negCount = 0;
+                }
+                display.setText(Double.toString(result) + display.getResources().getString(R.string.txtPlus));
                 break;
             case R.id.btnMinus:
-                operationClicked("minus");
-                display.setText(display.getText() + display.getResources().getString(R.string.txtMinus));
+                while (opMinus == false) {
+                    if (booPlus == true) {
+                        operationClicked("plus");
+                    } else if (booMinus == false) {
+                        operationClicked("minus");
+                    } else if (booMultiply == true) {
+                        operationClicked("multiply");
+                    } else if (booDivided == true) {
+                        operationClicked("divided");
+                    }
+
+                    opPlus = false;
+
+                    opMultiply = false;
+                    opDivided = false;
+                    booMultiply = false;
+
+                    booPlus = false;
+                    booDivided = false;
+                    s1 = Double.toString(result);
+                    count = 0;
+                    negCount = 0;
+                }
+                display.setText(Double.toString(result) + display.getResources().getString(R.string.txtMinus));
                 break;
             case R.id.btnDecimal:
                 if (count == 0 && display.length() != 0) {
@@ -331,10 +415,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             {
                 v1 = Double.parseDouble(s1);
                 result = result + v1;
+//                opPlus = false;
                 display.setText(decimalFormat.format(result));
             }
             newValue = true;
             booPlus = true;
+
         }
         else if (op == "minus")
         {
