@@ -226,7 +226,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     booPlus = false;
                     s1 = Double.toString(result);
                     count = 0;
-                    negCount = 0;
                 }
                 display.setText(Double.toString(result) + display.getResources().getString(R.string.txtDivided));
                 break;
@@ -251,7 +250,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     booDivided = false;
                     s1 = Double.toString(result);
                     count = 0;
-                    negCount = 0;
+
                 }
                 display.setText(Double.toString(result) + display.getResources().getString(R.string.txtMultiply));
                 break;
@@ -277,7 +276,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     booDivided = false;
                     s1 = Double.toString(result);
                     count = 0;
-                    negCount = 0;
                 }
                 display.setText(Double.toString(result) + display.getResources().getString(R.string.txtPlus));
                 break;
@@ -303,7 +301,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     booDivided = false;
                     s1 = Double.toString(result);
                     count = 0;
-                    negCount = 0;
                 }
                 display.setText(Double.toString(result) + display.getResources().getString(R.string.txtMinus));
                 break;
