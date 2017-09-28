@@ -2,6 +2,9 @@ Simple Math Calculator - This is for my Mobile Application Development Course at
 
 (turn out... it wasn't very simple, mostly cause I want it to work like a real calculator)
 
+Sept 28, 2017
+fixed 1 + 1 x 3. it can now do contiunously calculation.
+
 Sept 26, 2017
 everything works.... kind of except the following
 - can't do 1 + 1 x 3 and etc
